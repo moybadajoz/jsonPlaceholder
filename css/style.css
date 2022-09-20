@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(60, 60, 60);
+}
+
+.contenedor {
+    margin: 5%;
+    width: 90%;
+    background-color: rgba(162, 172, 186, 0.115);
+    border-radius: 10px;
+}
+
+#usuarios {
+
+}
+
+#listaUsuarios {
+    margin: 10%;
+}
+
+.tarjeta{
+    width: 45%;
+    display: inline-block;
+    background-color: rgb(204, 172, 244);
+    border: 1px solid rgb(58, 0, 112);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.Info {
+    margin-left: 50px;
+}
