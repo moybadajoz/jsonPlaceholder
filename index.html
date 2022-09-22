@@ -11,10 +11,16 @@
 <body>
     <div class="contenedor">
         <div id="listaUsuarios">
+            <h1 style="text-align: center;">Usuarios del sistema</h1>
+        </div>
+
+        <div id="tareasUsuarios">
+        <h1 style="text-align: center;">Lista de tareas</h1>
+
         </div>
     </div>
 
-    <template id="template">
+    <template id="template-usuarios">
         <div class="tarjeta">
             <h1>Usuario: </h1>
             <div class="Info">
@@ -37,6 +43,13 @@
                 <h2>CatchPhrase</h2>
                 <h2>bs</h2>
             </div>
+            <button class="btn">Ver ToDos</button>
+        </div>
+    </template>
+    <template id="template-tareas">
+        <div class="tarjeta">
+            <h1>Titulo</h1>
+            <h2>Completada</h2>
         </div>
     </template>
     <script src="./js/app.js"></script>

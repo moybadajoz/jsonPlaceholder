@@ -5,10 +5,12 @@ body {
 }
 
 .contenedor {
-    margin: 5%;
-    width: 90%;
-    background-color: rgba(162, 172, 186, 0.115);
-    border-radius: 10px;
+    margin: 2%;
+    height: 100hv!important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 #usuarios {
@@ -16,19 +18,39 @@ body {
 }
 
 #listaUsuarios {
-    margin: 10%;
+    width: 49%;
+}
+
+#tareasUsuarios{
+    width: 49%;
 }
 
 .tarjeta{
-    width: 45%;
-    display: inline-block;
+    width: 100%;
     background-color: rgb(204, 172, 244);
-    border: 1px solid rgb(58, 0, 112);
+    border: 2px solid rgb(58, 0, 112);
     border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .Info {
     margin-left: 50px;
+}
+
+.btn{
+    margin: 10px;
+    width: 100px;
+    height: 40px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: white;
+    color: blueviolet;
 }

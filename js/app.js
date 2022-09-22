@@ -1,12 +1,37 @@
 console.log('Conectado')
 const listaUsuarios = document.getElementById('listaUsuarios')
-const template = document.getElementById('template').content
+const listaTareas = document.getElementById('tareasUsuarios')
+const template = document.getElementById('template-usuarios').content
+const t_tarea = document.getElementById('template-tareas').content
 const fragment = document.createDocumentFragment()
+const fragment2 = document.createDocumentFragment()
 let usuarios = []
+let tareas = []
 
 document.addEventListener('DOMContentLoaded', () => {
     obtenerDatos()
 })
+
+listaUsuarios.addEventListener('click', e => {
+    if(e.target.classList.contains('btn')){
+        obtenTareasUsuarios(e.target.dataset.id)
+    }
+    e.stopPropagation()
+})
+
+const obtenTareasUsuarios = id => {
+    tareas = []
+    fetch(`https://jsonplaceholder.typicode.com/todos?userId=${id}`)
+        .then( async(res) => {
+            tareas = await res.json()
+            pintarTareas()
+            console.log('tareas', tareas)
+        })
+        .catch( error =>{
+            console.log(error)
+        })
+
+}
 
 const obtenerDatos = () => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -19,6 +44,25 @@ const obtenerDatos = () => {
         .catch( error => {
             console.log(error)
         })
+}
+
+const pintarTareas = () => {
+    listaTareas.childNodes.forEach( child =>{
+        if(child.nodeName == "DIV"){
+            listaTareas.removeChild(child)
+        }
+        
+    })
+    tareas.forEach( tarea => {
+        t_tarea.querySelectorAll('h1')[0].textContent = 'Titulo: ' + tarea.title
+        t_tarea.querySelectorAll('h2')[0].textContent = 'Completada : ' + tarea.completed
+        
+        const clone = t_tarea.cloneNode(true)
+        fragment.appendChild(clone)
+    })
+    listaTareas.appendChild(fragment)
+
+    
 }
 
 const pintaUsuarios = () => {
@@ -37,7 +81,8 @@ const pintaUsuarios = () => {
         template.querySelectorAll('h2')[8].textContent = 'Nombre: ' + usuario.company.name
         template.querySelectorAll('h2')[9].textContent = 'Eslogan: ' + usuario.company.catchPhrase
         template.querySelectorAll('h2')[10].textContent = 'Bs: ' + usuario.company.bs
-
+        
+        template.querySelector('.btn').dataset.id = usuario.id
         
 
         const clone = template.cloneNode(true)
